@@ -6,6 +6,18 @@ Install dependencies
 $ yarn
 ```
 
+Run seeds (this steep it's very important before run application)
+
+```sh
+$ yarn db:seed
+```
+
+Copy and paste .env.example
+
+```sh
+$ cp .env.example .env
+```
+
 Start app (develop mode)
 
 ```sh
@@ -22,5 +34,11 @@ Build app
 
 ```sh
 $ yarn build
+```
+
+# Swagger Documentation
+
+```
+<host>/documentation
 ```
 
