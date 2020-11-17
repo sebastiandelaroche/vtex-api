@@ -1,9 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { ArrayMinSize, IsArray, IsNumber, IsString, ValidateNested } from 'class-validator';
-import { CityDto } from '../../location/dtos/CityDto';
-import { CountryDto } from '../../location/dtos/CountryDto';
-import { StateDto } from '../../location/dtos/StateDto';
+import { ArrayMinSize, IsArray, IsNumber, IsOptional, IsString } from 'class-validator';
 import { VisitDto } from './VisitDto';
 
 export class CreateCustomerDto {
@@ -23,20 +20,17 @@ export class CreateCustomerDto {
   @ApiProperty()
   phone: string;
 
-  @Type(() => CityDto)
-  @ValidateNested()
-  @ApiProperty({ type: CityDto })
-  city: CityDto;
+  @IsString()
+  @ApiProperty()
+  city: string;
 
-  @Type(() => StateDto)
-  @ValidateNested()
-  @ApiProperty({ type: StateDto })
-  state: StateDto;
+  @IsString()
+  @ApiProperty()
+  state: string;
 
-  @Type(() => CountryDto)
-  @ValidateNested()
-  @ApiProperty({ type: CountryDto })
-  country: CountryDto;
+  @IsString()
+  @ApiProperty()
+  country: string;
 
   @IsNumber()
   @ApiProperty()
@@ -52,7 +46,7 @@ export class CreateCustomerDto {
 
   @Type(() => VisitDto)
   @IsArray()
-  @ArrayMinSize(1)
-  @ApiProperty({ type: VisitDto, isArray: true })
+  @IsOptional()
+  @ApiProperty({ type: VisitDto, isArray: true, required: false })
   visits: VisitDto[];
 }

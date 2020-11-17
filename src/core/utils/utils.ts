@@ -18,9 +18,9 @@ export const throwError = (exception: Exception) => () => {
 };
 
 export const throwErrorIfEmptyOrNil = (exception: Exception) =>
-  R.ifElse(R.isEmptyOrNil, throwError(exception), R.identity);
+  R.ifElse(isEmptyOrNil, throwError(exception), R.identity);
 
 export const throwErrorIfNotEmptyOrNil = (exception: Exception) =>
-  R.ifElse(R.isNotEmptyOrNil, throwError(exception), R.identity);
+  R.ifElse(isNotEmptyOrNil, throwError(exception), R.identity);
 
 export const wrapInArray = <T>(data: T): T[] => [data];

@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UseCase } from '@core/UseCase';
+import { ObjectId } from 'mongodb';
+import * as R from 'ramda';
 
 import { CustomerRepository } from '@database/repositories/CustomerRepository';
 import { UpdateCustomerDto } from '../dtos/UpdateCustomerDto';
@@ -20,12 +22,17 @@ export class UpdateCustomerUseCase implements UseCase<UpdateCustomerDto, Promise
     );
 
     const currentCustomer = await this.customerRepository
-      .findOne({ id: data.id })
+      .findOne({ _id: new ObjectId(data.id) } as any)
       .then(validateCustomer);
 
-    return this.customerRepository.save({
-      ...currentCustomer, ...data
-    } as any) as unknown as Promise<CustomerDto>;
+    const customerDataUpdate = { ...currentCustomer, ...R.omit(['id'], data) };
+
+    await this.customerRepository.updateOne(
+      { _id: new ObjectId(data.id) },
+      { $set: customerDataUpdate }
+    );
+
+    return customerDataUpdate as unknown as CustomerDto;
   }
 
 }

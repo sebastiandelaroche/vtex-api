@@ -49,7 +49,7 @@ export class CustomerController {
 
   @Delete('/:id')
   @ApiResponse({ status: 200 })
-  delete(@Param('id') id: ObjectID): Promise<void> {
+  delete(@Param('id') id: ObjectID): Promise<ObjectID> {
     return this.deleteCustomerUseCase.execute(id);
   }
 

@@ -1,5 +1,5 @@
 import { Column } from 'typeorm';
-import { BaseEntity } from '@database/BaseEntity';
+import { BaseEntity } from '../BaseEntity';
 import { Salesperson } from './Salesperson';
 
 export class Visit extends BaseEntity {

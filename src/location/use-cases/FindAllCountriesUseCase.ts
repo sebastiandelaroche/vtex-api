@@ -12,7 +12,7 @@ export class FindAllCountriesUseCase implements UseCase<void, Promise<CountryDto
   ) { }
 
   execute(): Promise<CountryDto[]> {
-    return this.countryRepository.find();
+    return this.countryRepository.find() as unknown as Promise<CountryDto[]>;
   }
 
 }

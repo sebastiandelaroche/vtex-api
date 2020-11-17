@@ -25,6 +25,7 @@
     "dev": "nodemon",
     "docker-compose-up": "docker-compose up mongodb",
     "docker-compose-down": "docker-compose down",
+    "db:seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "test:ci": "echo \"Starting Testing\""
@@ -40,6 +41,7 @@
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "dotenv-safe": "^8.2.0",
+    "faker": "^5.1.0",
     "glob": "^7.1.6",
     "module-alias": "^2.2.2",
     "moment": "^2.27.0",
@@ -52,6 +54,7 @@
     "rxjs": "^6.6.2",
     "swagger-ui-express": "^4.1.4",
     "typeorm": "^0.2.29",
+    "typeorm-seeding": "^1.6.1",
     "uuid": "^8.3.0"
   },
   "devDependencies": {

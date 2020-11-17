@@ -30,23 +30,20 @@ export class UpdateCustomerDto {
   @ApiPropertyOptional()
   phone?: string;
 
-  @Type(() => CityDto)
+  @IsString()
   @IsOptional()
-  @ValidateNested()
-  @ApiPropertyOptional({ type: CityDto })
-  city?: CityDto;
+  @ApiPropertyOptional()
+  city?: string;
 
-  @Type(() => StateDto)
+  @IsString()
   @IsOptional()
-  @ValidateNested()
-  @ApiPropertyOptional({ type: StateDto })
-  state?: StateDto;
+  @ApiPropertyOptional()
+  state?: string;
 
-  @Type(() => CountryDto)
+  @IsString()
   @IsOptional()
-  @ValidateNested()
-  @ApiPropertyOptional({ type: CountryDto })
-  country?: CountryDto;
+  @ApiPropertyOptional()
+  country?: string;
 
   @IsNumber()
   @IsOptional()

@@ -19,14 +19,14 @@ export class Customer extends BaseEntity {
   @Column()
   phone: string;
 
-  @Column(type => City)
-  city: City;
+  @Column()
+  city: string;
 
-  @Column(type => State)
-  state: State;
+  @Column()
+  state: string;
 
-  @Column(type => Country)
-  country: Country;
+  @Column()
+  country: string;
 
   @Column()
   quote: number;
