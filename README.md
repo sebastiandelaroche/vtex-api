@@ -6,6 +6,12 @@ Install dependencies
 $ yarn
 ```
 
+Boot database
+
+```sh
+$ yarn docker-compose-up
+```
+
 Run seeds (this steep it's very important before run application)
 
 ```sh
